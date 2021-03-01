@@ -2,6 +2,12 @@ import torch.nn as nn
 
 
 class FILinear(nn.Linear):
+    """
+    A fault injector wrapper module for nn.Linear transformation.
+
+    https://pytorch.org/docs/stable/generated/torch.nn.Linear.html
+    """
+
     def __init__(self, fi, name, in_features, out_features, weight=None, bias=None):
         self.fi = fi
         self.name = name

@@ -1,8 +1,9 @@
 import torch
+import torch.nn as nn
 import numpy as np
 
 from injector import TensorInjector
-from injector.finn import FILinear
+import injector.finn as finn
 
 
 class ModelInjector:
@@ -47,7 +48,11 @@ class ModelInjector:
         self.error_args = error_args
 
         self.injection_count = 0
-        self.layer_supported = {}
+        self.layer_supported = {
+            finn.Matmul: finn.FIMatmul,
+            finn.BatchMatmul: finn.FIBatchMatmul,
+            nn.Linear: finn.FILinear,
+        }
         self.last_layer_index = -1
         self.layer_refs = []
 
