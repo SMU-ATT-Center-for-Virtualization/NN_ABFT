@@ -1,9 +1,34 @@
 import torch.nn as nn
 
+from injector.finn.eltwise import (
+    EltwiseAdd,
+    EltwiseSub,
+    EltwiseMult,
+    EltwiseDiv,
+    FIEltwiseAdd,
+    FIEltwiseSub,
+    FIEltwiseMult,
+    FIEltwiseDiv,
+)
 from injector.finn.matmul import Matmul, BatchMatmul, FIMatmul, FIBatchMatmul
 from injector.finn.linear import FILinear
 
-__all__ = ('Matmul', 'BatchMatmul', 'FIMatmul', 'FIBatchMatmul', 'FILinear', 'Print')
+__all__ = (
+    'EltwiseAdd',
+    'EltwiseSub',
+    'EltwiseMult',
+    'EltwiseDiv',
+    'FIEltwiseAdd',
+    'FIEltwiseSub',
+    'FIEltwiseMult',
+    'FIEltwiseDiv',
+    'Matmul',
+    'BatchMatmul',
+    'FIMatmul',
+    'FIBatchMatmul',
+    'FILinear',
+    'Print',
+)
 
 
 class Print(nn.Module):

@@ -60,11 +60,14 @@ class ModelInjector:
         self.last_layer_index = -1
         self.layer_refs = []
 
-    def patch_model(self):
-        for name, layer in self.model.named_children():
+    def _patch_model(self, model):
+        for name, layer in model.named_children():
             patched_layer = self.patch_layer(layer, name)
-            setattr(self.model, name, patched_layer)
-            self.patch_model(layer)  # recursively patch block layers
+            setattr(model, name, patched_layer)
+            self._patch_model(layer)  # recursively patch block layers
+
+    def patch_model(self):
+        self._patch_model(self.model)
 
     def patch_layer(self, layer, layer_name):
         if self.enable_injection:
