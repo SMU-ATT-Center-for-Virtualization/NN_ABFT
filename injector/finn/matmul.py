@@ -5,8 +5,6 @@ import torch.nn as nn
 class Matmul(nn.Module):
     """
     A wrapper module for matmul operation between 2 tensors.
-
-    From https://github.com/IntelLabs/distiller/blob/master/distiller/modules/matmul.py
     """
 
     def __init__(self, *args, **kwargs):
@@ -19,8 +17,6 @@ class Matmul(nn.Module):
 class BatchMatmul(nn.Module):
     """
     A wrapper module for torch.bmm operation between 2 3-D tensors.
-
-    From https://github.com/IntelLabs/distiller/blob/master/distiller/modules/matmul.py
     """
 
     def __init__(self, *args, **kwargs):

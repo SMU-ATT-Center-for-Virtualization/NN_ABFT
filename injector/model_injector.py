@@ -49,6 +49,10 @@ class ModelInjector:
 
         self.injection_count = 0
         self.layer_supported = {
+            finn.EltwiseAdd: finn.FIEltwiseAdd,
+            finn.EltwiseSub: finn.FIEltwiseSub,
+            finn.EltwiseMult: finn.FIEltwiseMult,
+            finn.EltwiseDiv: finn.FIEltwiseDiv,
             finn.Matmul: finn.FIMatmul,
             finn.BatchMatmul: finn.FIBatchMatmul,
             nn.Linear: finn.FILinear,
